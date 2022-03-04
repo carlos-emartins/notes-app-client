@@ -13,7 +13,7 @@ function NoteContainer({ note, getAllNotes }) {
 
   const updateNote = (id, newBody) => {
     axios
-      .put(`http://localhost:3001/notes/${id}`, {
+      .put(`https://carlos-notes-app-api.herokuapp.com/notes/${id}`, {
         newBody: newBody,
       })
       .then(() => {
@@ -23,9 +23,11 @@ function NoteContainer({ note, getAllNotes }) {
   }
 
   const deleteNote = (id) => {
-    axios.delete(`http://localhost:3001/notes/${id}`).then(() => {
-      getAllNotes()
-    })
+    axios
+      .delete(`https://carlos-notes-app-api.herokuapp.com/notes/${id}`)
+      .then(() => {
+        getAllNotes()
+      })
   }
 
   return (

@@ -9,9 +9,11 @@ function App() {
   const [allNotes, setAllNotes] = useState([])
 
   const getAllNotes = () => {
-    axios.get('http://localhost:3001/notes').then((res) => {
-      setAllNotes(res.data)
-    })
+    axios
+      .get('https://carlos-notes-app-api.herokuapp.com/notes')
+      .then((res) => {
+        setAllNotes(res.data)
+      })
   }
 
   useEffect(() => {
@@ -20,7 +22,7 @@ function App() {
 
   const addNotes = () => {
     axios
-      .post('http://localhost:3001/notes', {
+      .post('https://carlos-notes-app-api.herokuapp.com/notes', {
         body: '# Hello World!',
       })
       .then(() => {
